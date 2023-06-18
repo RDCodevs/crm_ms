@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "crm-ms"
+version = "0.1.0"
+description = "CRM Medical Services API with python Fast API"
+authors = ["RDCode <rkostalin@gmail.com>"]
+readme = "README.md"
+packages = [{include = "crm_ms"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.97.0"
+uvicorn = "^0.22.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
