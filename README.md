@@ -27,3 +27,5 @@ poetry install
 ```text
 python main.py
 ```
+
+### Propiedades
