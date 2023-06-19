@@ -29,5 +29,3 @@ python main.py
 ```
 
 ### Propiedades
-
-### ASDASDASDASDASDSAD
