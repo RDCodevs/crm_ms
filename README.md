@@ -28,4 +28,33 @@ poetry install
 python main.py
 ```
 
-### Propiedades
+### GitHub
+
+---
+
+Pasos para la actualización del repositorio:
+
+```text
+git pull origin master
+```
+
+```text
+git init
+```
+
+```text
+git status
+```
+
+```text
+git add .
+```
+
+```text
+git commit -m "Describir el cambio que se hace"
+```
+
+```text
+git branch -M main
+```
+
