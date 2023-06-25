@@ -16,3 +16,4 @@ class Assistant(BaseModel):
     permissions: str # Una lista de los permisos o privilegios asignados al asistente por el administrador.
     completed_tasks: str # Una lista de las tareas completadas por el asistente.
     activity_records: str # Una lista de los registros o actividades realizadas por el asistente en el sistema.
+    email: str
