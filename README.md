@@ -70,66 +70,37 @@ git push -u origin main
 ### Modelos del Gestionamiento de Citas
 
 ---
-El modelo de administración contara con los siguientes atributos:
+Modelo de **Administración**:
 
-text
-Datos generales, nombre, apelllido, email, telefono y el rol
+- Datos generales, nombre, apelllido, email, telefono y el rol
 
+- La fecha de creación del perfil de administrador.
 
-text
-La fecha de creación del perfil de administrador.
+- La fecha y hora de la última conexión del administrador al sistema.
 
+- Una lista de los permisos o privilegios asignados al administrador.
 
-text
-La fecha y hora de la última conexión del administrador al sistema.
+- Una lista de los pacientes asignados por el administrador.
 
-
-text
-Una lista de los permisos o privilegios asignados al administrador.
-
-
-text
-Una lista de los pacientes asignados por el administrador.
-
-
-text
-Una lista de los registros o actividades realizadas por el administrador en el sistema.
-
+- Una lista de los registros o actividades realizadas por el administrador en el sistema.
 
 ---
-Modelo del asistente o secretario del medico
+Modelo de **Asistente**:
 
-text
-Datos generales, nombre, apelllido, email, y telefono
-``
-text
-Nombre del supervisor a cargo
-``
+- Datos generales, nombre, apelllido, email, y telefono
 
-text
-Una instancia de la clase "Admin" que representa la conexión directa con el administrador.
-``
+- Nombre del supervisor a cargo
 
-text
-Una lista de las tareas asignadas al asistente por el administrador.
-``
+- Una instancia de la clase "Admin" que representa la conexión directa con el administrador.
 
-text
-El horario disponible del asistente para realizar tareas.
-``
+- Una lista de las tareas asignadas al asistente por el administrador.
 
-text
-La fecha y hora de la última conexión del asistente al sistema.
-``
+- El horario disponible del asistente para realizar tareas.
 
-text
-Una lista de los permisos o privilegios asignados al asistente por el administrador.
-``
+- La fecha y hora de la última conexión del asistente al sistema.
 
-text
-Una lista de las tareas completadas por el asistente.
-``
+- Una lista de los permisos o privilegios asignados al asistente por el administrador.
 
-```text
-Una lista de los registros o actividades realizadas por el asistente en el sistema.
-``
+- Una lista de las tareas completadas por el asistente.
+  
+- Una lista de los registros o actividades realizadas por el asistente en el sistema.
