@@ -1,7 +1,7 @@
 import uvicorn
-from app import app
+from src.app import app
   
 if __name__ == "__main__":
-  config = uvicorn.Config(app, port= 5000, log_level= "info", reload= True)
+  config = uvicorn.Config(app, port= 5000, reload= True, log_level= "info")
   server = uvicorn.Server(config)
-  server.run()
+  uvicorn.run(server)
