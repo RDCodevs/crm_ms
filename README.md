@@ -59,6 +59,14 @@ git commit -m "Describir el cambio que se hace"
 git branch -M main
 ```
 
+```text
+Opcional: git remote add origin https://github.com/RDCodevs/crm_ms.git
+```
+
+```text
+git push -u origin main
+```
+
 ### Modelos del Gestionamiento de Citas
 
 ---
