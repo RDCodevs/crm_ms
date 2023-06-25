@@ -10,6 +10,7 @@ packages = [{include = "crm_ms"}]
 python = "^3.11"
 fastapi = "^0.97.0"
 uvicorn = "^0.22.0"
+sqlalchemy = "^2.0.17"
 
 
 [build-system]
