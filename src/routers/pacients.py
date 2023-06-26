@@ -59,8 +59,7 @@ async def update_pacient(pacient: Pacient):
 async def patch_pacient(pacient: UpdatePacient):
     """
     ## ARGS
-        - pacient_id: int
-        - pacient_prop: any
+        - pacient: Pacient
     ## REPONSE
         - pacient: Pacient
     

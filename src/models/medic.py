@@ -1,5 +1,5 @@
 from src.config.database import Base
-from sqlalchemy import Column, Integer, String, Float, Date
+from sqlalchemy import Column, Integer, String, Float, Date, Time
 
 class Medic(Base):
     __tablename__ = "medic"
@@ -11,10 +11,8 @@ class Medic(Base):
     speciality = Column(String)
     phone = Column(Integer) 
     email = Column(String)
-    medical_history = Column(String)
     address = Column(String)
-    schedule = Column(Date) 
-    experience = Column(String) 
-    education = Column(String)      
-    certifications = Column(String)
-    consultation = Column(String)
+    schedule_start = Column(Time) 
+    schedule_end = Column(Time)
+    experience = Column(Integer)    
+    certifications = Column(Integer, nullable= True)
