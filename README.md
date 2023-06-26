@@ -64,7 +64,7 @@ Opcional: git remote add origin https://github.com/RDCodevs/crm_ms.git
 ```
 
 ```text
-git push -u origin main
+git push -u origin main --force
 ```
 
 ### Modelos del Gestionamiento de Citas
