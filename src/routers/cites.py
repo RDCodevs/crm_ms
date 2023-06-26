@@ -85,11 +85,11 @@ async def update_cite(cite: Cites):
 @router.patch("/edit_cite", 
               tags=["Cites"],
               status_code= status.HTTP_200_OK,
-              response_model= Cites)
-async def patch_cite(cite: Cites):
+              response_model= UpdateCite)
+async def patch_cite(cite: UpdateCite):
     """
       ## ARGS
-        - cite: Cites
+        - cite: UpdateCites
       ## RESPONSE
         - cite: Cites
     """

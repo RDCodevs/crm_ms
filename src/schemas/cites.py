@@ -1,6 +1,8 @@
 from pydantic import BaseModel
 from datetime import date, datetime, time
 from typing import List, Union
+import uuid
+
 class Cites(BaseModel):
     query_type: str
     query_description: str
@@ -8,15 +10,14 @@ class Cites(BaseModel):
     number_cite: str
     consulting_room: str
     horary: datetime
-    id_patient: int # Una instancia de la clase "Paciente" que representa al paciente asociado a la cita.
+    id_pacient: int # Una instancia de la clase "Paciente" que representa al paciente asociado a la cita.
     id_medic: int # Una instancia de la clase "Medico" que representa al médico asociado a la cita.
     state: str # El estado de la cita (por ejemplo, programada, confirmada, cancelada).
     admin: Union[int, None] # Una instancia de la clase "Admin" 
     assistant: Union[int, None] # Una instancia de la clase "Assistant"
     observations: str # Observaciones o notas adicionales sobre la cita.
     reminder_sent: bool # Un indicador para registrar si se ha enviado un recordatorio al paciente o no.
-    registrado_por: Union[int, None] # El usuario que registró la cita en el sistema.
-    created_date: datetime
+    register_by: Union[int, None] # El usuario que registró la cita en el sistema.
 
     class Config:
         schema_extra = {
@@ -24,17 +25,17 @@ class Cites(BaseModel):
                 "query_type" : "Unkown",
                 "query_description": "Content of the query",
                 "site": "Centro de Salud Cojimies",
-                "number_cite": "19242",
+                "number_cite": str(uuid.uuid4()),
                 "consulting_room": "2A",
-                "horary": "",
-                "id_patient": 1,
+                "horary": "2009-12-07 10:00:00",
+                "id_pacient": 1,
                 "id_medic": 1,
                 "state": "Programada",
                 "admin": None,
                 "assistant": None,
                 "observations": "Observations to do after the cite",
                 "reminder_sent": False,
-                "register_by": None                
+                "register_by": None
             }
         }
 
@@ -46,18 +47,16 @@ class UpdateCite(BaseModel):
     query_type: str
     query_description: str
     site: str
-    number_cite: str
     consulting_room: str
     horary: datetime
-    id_patient: int # Una instancia de la clase "Paciente" que representa al paciente asociado a la cita.
+    id_pacient: int # Una instancia de la clase "Paciente" que representa al paciente asociado a la cita.
     id_medic: int # Una instancia de la clase "Medico" que representa al médico asociado a la cita.
     state: str # El estado de la cita (por ejemplo, programada, confirmada, cancelada).
     admin: Union[int, None] # Una instancia de la clase "Admin" 
     assistant: Union[int, None] # Una instancia de la clase "Assistant"
     observations: str # Observaciones o notas adicionales sobre la cita.
     reminder_sent: bool # Un indicador para registrar si se ha enviado un recordatorio al paciente o no.
-    registrado_por: Union[int, None] # El usuario que registró la cita en el sistema.
-    created_date: datetime
+    register_by: Union[int, None] # El usuario que registró la cita en el sistema.
     
     class Config:
         schema_extra = {
@@ -66,16 +65,15 @@ class UpdateCite(BaseModel):
                 "query_type" : "Unkown",
                 "query_description": "Content of the query",
                 "site": "Centro de Salud Cojimies",
-                "number_cite": "19242",
                 "consulting_room": "2A",
-                "horary": "2013-10-07 08:23:19.120",
-                "id_patient": 1,
+                "horary": "2009-12-07 10:00:00",
+                "id_pacient": 1,
                 "id_medic": 1,
                 "state": "Programada",
                 "admin": None,
                 "assistant": None,
                 "observations": "Observations to do after the cite",
                 "reminder_sent": False,
-                "register_by": None                
+                "register_by": None             
             }
         }

@@ -1,6 +1,6 @@
 from src.config.database import Session, engine, Base
 from src.models.cites import Cites as CiteModel
-from src.schemas.cites import Cites
+from src.schemas.cites import Cites, ListCites, UpdateCite
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from fastapi import status
@@ -9,16 +9,42 @@ Base.metadata.create_all(bind= engine)
 
 
 def get_all_cites():
-    pass
+   db = Session()
+   res = db.query(CiteModel).all()
 
-def get_cite_by_id(id_cite):
-  pass
+   return JSONResponse(status_code= status.HTTP_200_OK,
+                       content= jsonable_encoder(res))
 
-def get_cite_by_patient_id(id_pacient):
-  pass
+def get_cite_by_id(id_cite: int):
+   db = Session()
+   res = db.query(CiteModel).filter(CiteModel.id_cite == id_cite).first()
 
-def get_cites_by_medic_id(id_medic):
-   pass
+   if not res:
+      return JSONResponse(status_code= status.HTTP_404_NOT_FOUND,
+                content= {"message": "Cite not Found"})         
+
+   return JSONResponse(status_code= status.HTTP_200_OK, content= jsonable_encoder(res))
+
+def get_cite_by_patient_id(id_pacient: int):
+   db = Session()
+   res = db.query(CiteModel).filter(CiteModel.id_pacient == id_pacient).first()
+
+   if not res:
+      return JSONResponse(status_code= status.HTTP_404_NOT_FOUND,
+                content= {"message": "Cite not Found"})  
+   
+   return JSONResponse(status_code= status.HTTP_200_OK, content= jsonable_encoder(res))
+
+def get_cites_by_medic_id(id_medic: int):
+   db = Session()
+   res = db.query(CiteModel).filter(CiteModel.id_medic == id_medic).all()
+
+   if not res:
+      return JSONResponse(status_code= status.HTTP_404_NOT_FOUND,
+                content= {"message": "Cite not Found"})  
+   
+   return JSONResponse(status_code= status.HTTP_200_OK, content= jsonable_encoder(res))
+
 
 def create_cite(cite: Cites):
    db = Session()
@@ -29,11 +55,43 @@ def create_cite(cite: Cites):
 
    return cite.dict()
 
-def patch_cite():
-   pass
+def patch_cite(cite: UpdateCite):
+   db = Session()
+   res = db.query(CiteModel).filter(CiteModel.id_cite == cite.id_cite).first()
+
+   if not res:
+      return JSONResponse(status_code= status.HTTP_404_NOT_FOUND,
+                content= {"message": "Cite not Found"})  
+
+   cite_data = cite.dict(exclude_unset= True)
+
+   for key, value in cite_data.items():
+      setattr(res, key, value)
+
+   result = res
+   
+   db.add(res)
+   db.commit()
+   db.refresh(res)
+
+   return JSONResponse(status_code= status.HTTP_200_OK, content= jsonable_encoder(result))
 
 def update_cite():
    pass
 
-def delete_cite(id_cite):
-   pass
+def delete_cite(id_cite: int):
+   db = Session()
+   res = db.query(CiteModel).filter(CiteModel.id_cite == id_cite).first()
+
+   if not res:
+      return JSONResponse(status_code= status.HTTP_404_NOT_FOUND,
+                content= {"message": "Cite not Found"}) 
+   
+   result = res
+
+   db.delete(res)
+   db.commit()
+
+   return JSONResponse(status_code= status.HTTP_200_OK, content= jsonable_encoder(result))
+
+
