@@ -1,0 +1,998 @@
+{
+  "openapi": "3.0.2",
+  "info": { "title": "FastAPI", "version": "0.1.0" },
+  "paths": {
+    "/pacients/get_pacient/{pacient_id}": {
+      "get": {
+        "tags": ["Pacients"],
+        "summary": "Get Pacient By Id",
+        "description": "## ARGS\n    - pacient: Pacient\n## REPONSE\n    - pacient: Pacient",
+        "operationId": "get_pacient_by_id_pacients_get_pacient__pacient_id__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Pacient Id", "type": "integer" },
+            "name": "pacient_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pacients/get_all": {
+      "get": {
+        "tags": ["Pacients"],
+        "summary": "Get All Pacient",
+        "description": "## REPONSE\n    - pacient: List(Pacient)",
+        "operationId": "get_all_pacient_pacients_get_all_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ListPacient" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pacients/add_pacient": {
+      "post": {
+        "tags": ["Pacients"],
+        "summary": "End point para agregar un nuevo paciente",
+        "description": "## ARGS\n    - pacient: Pacient\n## REPONSE\n    - pacient: Pacient",
+        "operationId": "create_pacient_pacients_add_pacient_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Pacient" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Pacient" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pacients/update_pacient": {
+      "put": {
+        "tags": ["Pacients"],
+        "summary": "Update Pacient",
+        "description": "## ARGS\n    - pacient: Pacient\n## REPONSE\n    - pacient: Pacient",
+        "operationId": "update_pacient_pacients_update_pacient_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Pacient" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pacients/edit_pacient/": {
+      "patch": {
+        "tags": ["Pacients"],
+        "summary": "Patch Pacient",
+        "description": "## ARGS\n    - pacient: Pacient\n## REPONSE\n    - pacient: Pacient",
+        "operationId": "patch_pacient_pacients_edit_pacient__patch",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdatePacient" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Pacient" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pacients/delete_pacient/{pacient_id}": {
+      "delete": {
+        "tags": ["Pacients"],
+        "summary": "Delete Pacient",
+        "description": "## ARGS\n    - pacient_id: int\n## REPONSE\n    - status: Http Status",
+        "operationId": "delete_pacient_pacients_delete_pacient__pacient_id__delete",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Pacient Id", "type": "integer" },
+            "name": "pacient_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cites/get_cite/{id_cite}": {
+      "get": {
+        "tags": ["Cites"],
+        "summary": "Get Cite By Id",
+        "description": "## ARGS\n  - id_cite: int\n## RESPONSE\n  - cite: Cite",
+        "operationId": "get_cite_by_id_cites_get_cite__id_cite__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Id Cite", "type": "integer" },
+            "name": "id_cite",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Cites" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cites/get_all": {
+      "get": {
+        "tags": ["Cites"],
+        "summary": "Get All Cite",
+        "description": "## RESPONSE\n  - cites: List(Cites)",
+        "operationId": "get_all_cite_cites_get_all_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ListCites" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cites/get_cite_pacient/{id_patient}": {
+      "get": {
+        "tags": ["Cites"],
+        "summary": "Get Cite By Id Patient",
+        "description": "### ARGS\n  -id_patient: int\n\n### RESPONSE\n  -cite: Cite",
+        "operationId": "get_cite_by_id_patient_cites_get_cite_pacient__id_patient__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Id Patient", "type": "integer" },
+            "name": "id_patient",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Cites" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/citesget_cite_medic/{id_medic}": {
+      "get": {
+        "tags": ["Cites"],
+        "summary": "Get Cite By Medic Id",
+        "description": "## ARGS\n  - id_medic: int\n## RESPONSE\n  - cite: List(Cite)",
+        "operationId": "get_cite_by_medic_id_citesget_cite_medic__id_medic__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Id Medic", "type": "integer" },
+            "name": "id_medic",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Cites" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cites/add_cite": {
+      "post": {
+        "tags": ["Cites"],
+        "summary": "Create Cite",
+        "description": "## ARGS\n  - cite: Cites\n## RESPONSE\n  - cite: Cites",
+        "operationId": "create_cite_cites_add_cite_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Cites" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Cites" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cites/update_cite": {
+      "put": {
+        "tags": ["Cites"],
+        "summary": "Update Cite",
+        "description": "## ARGS\n  - cite: Cites\n## RESPONSE\n  - cite: Cites",
+        "operationId": "update_cite_cites_update_cite_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Cites" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/UpdateCite" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cites/edit_cite": {
+      "patch": {
+        "tags": ["Cites"],
+        "summary": "Patch Cite",
+        "description": "## ARGS\n  - cite: UpdateCites\n## RESPONSE\n  - cite: Cites",
+        "operationId": "patch_cite_cites_edit_cite_patch",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateCite" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/UpdateCite" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cites/delete_cite/{cite_id}": {
+      "delete": {
+        "tags": ["Cites"],
+        "summary": "Delete Cite",
+        "description": "## ARGS\n  - cite: Cites\n## RESPONSE\n  - status: Http Status",
+        "operationId": "delete_cite_cites_delete_cite__cite_id__delete",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Cite Id", "type": "integer" },
+            "name": "cite_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Cites" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/medics/get_medic/{medic_id}": {
+      "get": {
+        "tags": ["Medics"],
+        "summary": "Get Medic By Id",
+        "description": "## ARGS\n    - medic: Medic\n## REPONSE\n    - medic: Medic",
+        "operationId": "get_medic_by_id_medics_get_medic__medic_id__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Medic Id", "type": "integer" },
+            "name": "medic_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/medics/get_all": {
+      "get": {
+        "tags": ["Medics"],
+        "summary": "Get All Medic",
+        "operationId": "get_all_medic_medics_get_all_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ListMedic" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/medics/add_medic": {
+      "post": {
+        "tags": ["Medics"],
+        "summary": "End point para agregar un nuevo medico",
+        "operationId": "create_medic_medics_add_medic_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Medic" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Medic" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/medics/update_medic": {
+      "put": {
+        "tags": ["Medics"],
+        "summary": "Update Medic",
+        "operationId": "update_medic_medics_update_medic_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Medic" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/medics/edit_medic/": {
+      "patch": {
+        "tags": ["Medics"],
+        "summary": "Patch Medic",
+        "description": "## ARGS\n    - medient_id: int\n    - medient_prop: any\n## REPONSE\n    - medient: medient",
+        "operationId": "patch_medic_medics_edit_medic__patch",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateMedic" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Medic" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/medics/delete_medic/{medic_id}": {
+      "delete": {
+        "tags": ["Medics"],
+        "summary": "Delete Medic",
+        "description": "## ARGS\n    - medient_id: int\n## REPONSE\n    - status: Http Status",
+        "operationId": "delete_medic_medics_delete_medic__medic_id__delete",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Medic Id", "type": "integer" },
+            "name": "medic_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Cites": {
+        "title": "Cites",
+        "required": [
+          "query_type",
+          "query_description",
+          "site",
+          "number_cite",
+          "consulting_room",
+          "horary",
+          "id_pacient",
+          "id_medic",
+          "state",
+          "observations",
+          "reminder_sent"
+        ],
+        "type": "object",
+        "properties": {
+          "query_type": { "title": "Query Type", "type": "string" },
+          "query_description": {
+            "title": "Query Description",
+            "type": "string"
+          },
+          "site": { "title": "Site", "type": "string" },
+          "number_cite": { "title": "Number Cite", "type": "string" },
+          "consulting_room": { "title": "Consulting Room", "type": "string" },
+          "horary": {
+            "title": "Horary",
+            "type": "string",
+            "format": "date-time"
+          },
+          "id_pacient": { "title": "Id Pacient", "type": "integer" },
+          "id_medic": { "title": "Id Medic", "type": "integer" },
+          "state": { "title": "State", "type": "string" },
+          "admin": { "title": "Admin", "type": "integer" },
+          "assistant": { "title": "Assistant", "type": "integer" },
+          "observations": { "title": "Observations", "type": "string" },
+          "reminder_sent": { "title": "Reminder Sent", "type": "boolean" },
+          "register_by": { "title": "Register By", "type": "integer" }
+        },
+        "example": {
+          "query_type": "Unkown",
+          "query_description": "Content of the query",
+          "site": "Centro de Salud Cojimies",
+          "number_cite": "1687920f-a553-4133-a9ef-68b1ef7eea75",
+          "consulting_room": "2A",
+          "horary": "2009-12-07 10:00:00",
+          "id_pacient": 1,
+          "id_medic": 1,
+          "state": "Programada",
+          "observations": "Observations to do after the cite",
+          "reminder_sent": false
+        }
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/ValidationError" }
+          }
+        }
+      },
+      "ListCites": {
+        "title": "ListCites",
+        "required": ["cites"],
+        "type": "object",
+        "properties": {
+          "cites": {
+            "title": "Cites",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Cites" }
+          }
+        }
+      },
+      "ListMedic": {
+        "title": "ListMedic",
+        "required": ["medics"],
+        "type": "object",
+        "properties": {
+          "medics": {
+            "title": "Medics",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Medic" }
+          }
+        }
+      },
+      "ListPacient": {
+        "title": "ListPacient",
+        "required": ["pacients"],
+        "type": "object",
+        "properties": {
+          "pacients": {
+            "title": "Pacients",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Pacient" }
+          }
+        }
+      },
+      "Medic": {
+        "title": "Medic",
+        "required": [
+          "cedula",
+          "name",
+          "lastname",
+          "gender",
+          "speciality",
+          "phone",
+          "email",
+          "address",
+          "schedule_start",
+          "schedule_end",
+          "experience"
+        ],
+        "type": "object",
+        "properties": {
+          "cedula": { "title": "Cedula", "type": "integer" },
+          "name": { "title": "Name", "type": "string" },
+          "lastname": { "title": "Lastname", "type": "string" },
+          "gender": { "title": "Gender", "type": "string" },
+          "speciality": { "title": "Speciality", "type": "string" },
+          "phone": { "title": "Phone", "type": "integer" },
+          "email": { "title": "Email", "type": "string" },
+          "address": { "title": "Address", "type": "string" },
+          "schedule_start": {
+            "title": "Schedule Start",
+            "type": "string",
+            "format": "time"
+          },
+          "schedule_end": {
+            "title": "Schedule End",
+            "type": "string",
+            "format": "time"
+          },
+          "experience": { "title": "Experience", "type": "integer" },
+          "certifications": { "title": "Certifications", "type": "integer" }
+        },
+        "example": {
+          "cedula": 1753497047,
+          "name": "Michael",
+          "lastname": "Mendoza",
+          "gender": "Male",
+          "speciality": "Obstetricia",
+          "phone": "0963615846",
+          "email": "killthmxall@gmail.com",
+          "address": "Jesus del Gran Poder, Cojimies y Colambo",
+          "schedule_start": "08:00:00",
+          "schedule_end": "16:00:00",
+          "experience": 3
+        }
+      },
+      "Pacient": {
+        "title": "Pacient",
+        "required": [
+          "name",
+          "lastname",
+          "gender",
+          "weight",
+          "height",
+          "ethnicity",
+          "allergies",
+          "HTA",
+          "cie_code",
+          "birthday",
+          "blood_type",
+          "address",
+          "phone"
+        ],
+        "type": "object",
+        "properties": {
+          "name": { "title": "Name", "type": "string" },
+          "lastname": { "title": "Lastname", "type": "string" },
+          "gender": { "title": "Gender", "type": "string" },
+          "weight": { "title": "Weight", "type": "number" },
+          "height": { "title": "Height", "type": "number" },
+          "ethnicity": { "title": "Ethnicity", "type": "string" },
+          "allergies": { "title": "Allergies", "type": "string" },
+          "HTA": { "title": "Hta", "type": "integer" },
+          "cie_code": { "title": "Cie Code", "type": "integer" },
+          "birthday": {
+            "title": "Birthday",
+            "type": "string",
+            "format": "date"
+          },
+          "blood_type": { "title": "Blood Type", "type": "string" },
+          "address": { "title": "Address", "type": "string" },
+          "phone": { "title": "Phone", "type": "integer" }
+        },
+        "example": {
+          "name": "Stalin",
+          "lastname": "Pillajo",
+          "gender": "Male",
+          "weight": 17.05,
+          "height": 1.72,
+          "ethnicity": "Indigena",
+          "allergies": "None",
+          "HTA": 110,
+          "cie_code": 123456,
+          "birthday": "2001-12-07",
+          "blood_type": "O+",
+          "address": "Jesus del Gran Poder, Cojimies y Colambo",
+          "phone": "0961800096"
+        }
+      },
+      "UpdateCite": {
+        "title": "UpdateCite",
+        "required": [
+          "id_cite",
+          "query_type",
+          "query_description",
+          "site",
+          "consulting_room",
+          "horary",
+          "id_pacient",
+          "id_medic",
+          "state",
+          "observations",
+          "reminder_sent"
+        ],
+        "type": "object",
+        "properties": {
+          "id_cite": { "title": "Id Cite", "type": "integer" },
+          "query_type": { "title": "Query Type", "type": "string" },
+          "query_description": {
+            "title": "Query Description",
+            "type": "string"
+          },
+          "site": { "title": "Site", "type": "string" },
+          "consulting_room": { "title": "Consulting Room", "type": "string" },
+          "horary": {
+            "title": "Horary",
+            "type": "string",
+            "format": "date-time"
+          },
+          "id_pacient": { "title": "Id Pacient", "type": "integer" },
+          "id_medic": { "title": "Id Medic", "type": "integer" },
+          "state": { "title": "State", "type": "string" },
+          "admin": { "title": "Admin", "type": "integer" },
+          "assistant": { "title": "Assistant", "type": "integer" },
+          "observations": { "title": "Observations", "type": "string" },
+          "reminder_sent": { "title": "Reminder Sent", "type": "boolean" },
+          "register_by": { "title": "Register By", "type": "integer" }
+        },
+        "example": {
+          "id_cite": 1,
+          "query_type": "Unkown",
+          "query_description": "Content of the query",
+          "site": "Centro de Salud Cojimies",
+          "consulting_room": "2A",
+          "horary": "2009-12-07 10:00:00",
+          "id_pacient": 1,
+          "id_medic": 1,
+          "state": "Programada",
+          "observations": "Observations to do after the cite",
+          "reminder_sent": false
+        }
+      },
+      "UpdateMedic": {
+        "title": "UpdateMedic",
+        "required": [
+          "id",
+          "cedula",
+          "name",
+          "lastname",
+          "gender",
+          "speciality",
+          "phone",
+          "email",
+          "address",
+          "schedule_start",
+          "schedule_end",
+          "experience"
+        ],
+        "type": "object",
+        "properties": {
+          "id": { "title": "Id", "type": "integer" },
+          "cedula": { "title": "Cedula", "type": "integer" },
+          "name": { "title": "Name", "type": "string" },
+          "lastname": { "title": "Lastname", "type": "string" },
+          "gender": { "title": "Gender", "type": "string" },
+          "speciality": { "title": "Speciality", "type": "string" },
+          "phone": { "title": "Phone", "type": "integer" },
+          "email": { "title": "Email", "type": "string" },
+          "address": { "title": "Address", "type": "string" },
+          "schedule_start": {
+            "title": "Schedule Start",
+            "type": "string",
+            "format": "time"
+          },
+          "schedule_end": {
+            "title": "Schedule End",
+            "type": "string",
+            "format": "time"
+          },
+          "experience": { "title": "Experience", "type": "integer" },
+          "certifications": { "title": "Certifications", "type": "integer" }
+        },
+        "example": {
+          "id": 1,
+          "cedula": 1753497047,
+          "name": "Michael",
+          "lastname": "Torrez",
+          "gender": "Male",
+          "speciality": "Obstetricia",
+          "phone": "0963615846",
+          "email": "killthmxall@gmail.com",
+          "address": "Jesus del Gran Poder, Cojimies y Colambo",
+          "schedule_start": "08:00:00",
+          "schedule_end": "16:00:00",
+          "experience": 3
+        }
+      },
+      "UpdatePacient": {
+        "title": "UpdatePacient",
+        "required": [
+          "id",
+          "gender",
+          "name",
+          "lastname",
+          "weight",
+          "height",
+          "ethnicity",
+          "allergies",
+          "HTA",
+          "cie_code",
+          "birthday",
+          "blood_type",
+          "address",
+          "phone"
+        ],
+        "type": "object",
+        "properties": {
+          "id": { "title": "Id", "type": "integer" },
+          "gender": { "title": "Gender", "type": "string" },
+          "name": { "title": "Name", "type": "string" },
+          "lastname": { "title": "Lastname", "type": "string" },
+          "weight": { "title": "Weight", "type": "integer" },
+          "height": { "title": "Height", "type": "integer" },
+          "ethnicity": { "title": "Ethnicity", "type": "string" },
+          "allergies": { "title": "Allergies", "type": "string" },
+          "HTA": { "title": "Hta", "type": "integer" },
+          "cie_code": { "title": "Cie Code", "type": "integer" },
+          "birthday": {
+            "title": "Birthday",
+            "type": "string",
+            "format": "date"
+          },
+          "blood_type": { "title": "Blood Type", "type": "string" },
+          "address": { "title": "Address", "type": "string" },
+          "phone": { "title": "Phone", "type": "integer" }
+        },
+        "example": {
+          "id": 1,
+          "name": "Stalin",
+          "lastname": "Pillajo",
+          "gender": "Male",
+          "weight": 17.05,
+          "height": 1.72,
+          "ethnicity": "Indigena",
+          "allergies": "None",
+          "HTA": 110,
+          "cie_code": 123456,
+          "birthday": "2001-12-07",
+          "blood_type": "O+",
+          "address": "Jesus del Gran Poder, Cojimies y Colambo",
+          "phone": "0961800096"
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": ["loc", "msg", "type"],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": { "anyOf": [{ "type": "string" }, { "type": "integer" }] }
+          },
+          "msg": { "title": "Message", "type": "string" },
+          "type": { "title": "Error Type", "type": "string" }
+        }
+      }
+    }
+  }
+}
