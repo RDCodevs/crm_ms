@@ -1,0 +1,13 @@
+anyio
+click
+colorama
+fastapi
+greenlet
+h11
+idna
+pydantic
+sniffio
+sqlalchemy
+starlette
+typing-extensions
+uvicorn[standard]
