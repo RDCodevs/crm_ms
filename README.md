@@ -104,6 +104,83 @@ Modelo de **Asistente**:
 - Una lista de las tareas completadas por el asistente.
   
 - Una lista de los registros o actividades realizadas por el asistente en el sistema.
+  
+---
+Modelo de **Citas**:
+
+- Una instancia de la clase "Paciente" que representa al paciente asociado a la cita.
+  
+- Una instancia de la clase "Medico" que representa al médico asociado a la cita.
+  
+- El estado de la cita (por ejemplo, programada, confirmada, cancelada).
+  
+- Una instancia de la clase "Admin"
+  
+- Una instancia de la clase "Assistant"
+  
+- Observaciones o notas adicionales sobre la cita.
+  
+- Un indicador para registrar si se ha enviado un recordatorio al paciente o no.
+  
+- El usuario que registró la cita en el sistema.
+
+---
+Modelo de **Paciente**:
+
+- Dato del paciente nombre
+  
+- Dato del paciente apellido
+  
+- Dato del paciente género
+  
+- Dato del paciente altura
+  
+- Dato del paciente peso
+  
+- Dato del paciente etnia
+  
+- Dato del paciente alergias
+  
+- Dato del paciente Hipertensión Arterial
+  
+- Observaciones sobre el cie del paciente
+  
+- Dato del paciente nacimiento
+  
+- Dato del paciente tipo de sangre
+  
+- Dato del paciente dirección
+  
+- Dato del paciente teléfono
+
+---
+Modelo de **Medico**:
+
+- Dato del médico ceédula
+  
+- Dato del médico nombre
+  
+- Dato del médico apellido
+
+- Dato del médico género
+
+- Dato del médico especialidad
+  
+- Dato del médico teléfono
+
+- Dato del médico email
+
+- Dato del médico dirección
+
+- Dato del médico email
+
+- El horario de atención del médico
+
+- El horario de finalización de atención del médico
+
+- La experiencia o años de práctica del médico.
+
+- Una lista de las certificaciones o reconocimientos obtenidos por el médico.
 
 ### SQLite
 - SQLite es una herramienta de software libre, que permite almacenar información en dispositivos empotrados de una forma sencilla, eficaz, potente, rápida y en equipos con pocas capacidades de hardware, como puede ser una PDA o un teléfono celular. SQLite implementa el estándar SQL92 y también agrega extensiones que facilitan su uso en cualquier ambiente de desarrollo. Esto permite que SQLite soporte desde las consultas más básicas hasta las más complejas del lenguaje SQL
