@@ -64,7 +64,7 @@ Opcional: git remote add origin https://github.com/RDCodevs/crm_ms.git
 ```
 
 ```text
-git push -u origin main
+git push -u origin main --force
 ```
 
 ### Modelos del Gestionamiento de Citas
@@ -104,3 +104,44 @@ Modelo de **Asistente**:
 - Una lista de las tareas completadas por el asistente.
   
 - Una lista de los registros o actividades realizadas por el asistente en el sistema.
+
+### SQLite
+- SQLite es una herramienta de software libre, que permite almacenar información en dispositivos empotrados de una forma sencilla, eficaz, potente, rápida y en equipos con pocas capacidades de hardware, como puede ser una PDA o un teléfono celular. SQLite implementa el estándar SQL92 y también agrega extensiones que facilitan su uso en cualquier ambiente de desarrollo. Esto permite que SQLite soporte desde las consultas más básicas hasta las más complejas del lenguaje SQL
+  
+Características:
+- La base de datos completa se encuentra en un solo archivo.
+- Puede funcionar enteramente en memoria, lo que la hace muy rápida.
+- Tiene un footprint menor a 230KB.
+- Es totalmente autocontenida (sin dependencias externas).
+- Cuenta con librerías de acceso para muchos lenguajes de programación.
+- Soporta texto en formato UTF-8 y UTF-16, así como datos numéricos de 64 bits.
+- Soporta funciones SQL definidas por el usuario (UDF).
+- El código fuente es de dominio público y se encuentra muy bien documentado.
+  
+Tipos de datos admitidos
+
+-La lista de tipos de datos y lenguajes aceptados por MySQL es más larga. Es compatible con algunos formatos más comunes del mercado como Tinyint, Timestamp, MediumBlob, MediumText y Datetime. SQLite solo es compatible con Integer, Real, Text y Blob.
+
+Capacidad de almacenamiento
+
+-Mientras que uno tiene capacidad para base de datos de 4GB como máximo, la biblioteca Lite solo admite bases de datos de 250kb o 1GB como máximo. Por este motivo, acaba siendo más adecuado para aplicaciones más pequeñas que necesitan menos ancho de banda.
+
+Consultas
+
+-Debido a que tiene menos espacio, en el caso de SQLite las consultas suelen tardar un poco más y no son simultáneas. Por otro lado, MySQL ya ofrece consultas paralelas más rápido. Esto significa que la devolución de las búsquedas puede ser más o menos lenta, según el sistema que elijas.
+
+Acceso y seguridad
+
+-En cuanto a seguridad, MySQL cuenta con un sistema de autenticación y control de usuarios. En la práctica esto quiere decir que cualquier persona que desee acceder a la base de datos proporcionará su usuario y contraseña. Sin esto, no es posible tener acceso.
+
+Ventajas
+
+- Es estable, multiplataforma y compatible con versiones anteriores.
+- Su código es de dominio público y gratuito.
+- No requiere instalación o configuración.
+- Guarda la base de datos en un solo archivo.
+
+
+
+
+
