@@ -108,7 +108,7 @@ Modelo de **Asistente**:
 ### SQLite
 - SQLite es una herramienta de software libre, que permite almacenar información en dispositivos empotrados de una forma sencilla, eficaz, potente, rápida y en equipos con pocas capacidades de hardware, como puede ser una PDA o un teléfono celular. SQLite implementa el estándar SQL92 y también agrega extensiones que facilitan su uso en cualquier ambiente de desarrollo. Esto permite que SQLite soporte desde las consultas más básicas hasta las más complejas del lenguaje SQL
   
-Características
+Características:
 - La base de datos completa se encuentra en un solo archivo.
 - Puede funcionar enteramente en memoria, lo que la hace muy rápida.
 - Tiene un footprint menor a 230KB.
