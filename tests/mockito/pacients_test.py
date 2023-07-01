@@ -7,6 +7,7 @@ from src.schemas.pacients import Pacient, UpdatePacient
 from fastapi.responses import JSONResponse
 from fastapi import status
 from fastapi.encoders import jsonable_encoder
+from src.services.pacients import get_all_pacient, create_pacient, patch_pacient, delete_pacient
 #-------------------------------------------------------
 def get_pacient(pacient_id: int):
     db = Session()
@@ -21,7 +22,7 @@ class TestPacientFunctions(unittest.TestCase):
     @patch('src.config.database.Session')
     def test_get_pacient(self, mock_session):
 
-        pacient = PacientModel(id_pacient=1, ...)
+        pacient = PacientModel(..., id_pacient=1)
 
         mock_db_session = MagicMock()
         mock_db_session.query.return_value.filter.return_value.first.return_value = pacient
@@ -37,8 +38,8 @@ class TestPacientFunctions(unittest.TestCase):
     @patch('src.config.database.Session')
     def test_get_all_pacient(self, mock_session):
   
-        pacient1 = PacientModel(id_pacient=1, ...)
-        pacient2 = PacientModel(id_pacient=2, ...)
+        pacient1 = PacientModel(..., id_pacient=1)
+        pacient2 = PacientModel(..., id_pacient=2)
         
   
         mock_db_session = MagicMock()
@@ -54,7 +55,7 @@ class TestPacientFunctions(unittest.TestCase):
     @patch('src.config.database.Session')
     def test_create_pacient(self, mock_session):
 
-        new_pacient = Pacient(id_pacient=1, ...)
+        new_pacient = Pacient(..., id_pacient=1)
         
         mock_db_session = MagicMock()
         mock_db_session.add.return_value = None
@@ -70,7 +71,7 @@ class TestPacientFunctions(unittest.TestCase):
     @patch('src.config.database.Session')
     def test_patch_pacient(self, mock_session):
   
-        pacient = PacientModel(id_pacient=1, ...)
+        pacient = PacientModel(..., id_pacient=1)
         
 
         mock_db_session = MagicMock()
@@ -80,7 +81,7 @@ class TestPacientFunctions(unittest.TestCase):
         mock_db_session.refresh.return_value = None
         mock_session.return_value = mock_db_session
 
-        updated_pacient = UpdatePacient(id=1, ...)
+        updated_pacient = UpdatePacient(..., id=1)
         
 
         response = patch_pacient(updated_pacient)
@@ -92,7 +93,7 @@ class TestPacientFunctions(unittest.TestCase):
     @patch('src.config.database.Session')
     def test_delete_pacient(self, mock_session):
  
-        pacient = PacientModel(id_pacient=1, ...)
+        pacient = PacientModel(..., id_pacient=1)
         
 
         mock_db_session = MagicMock()
