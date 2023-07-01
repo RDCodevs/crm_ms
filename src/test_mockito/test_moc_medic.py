@@ -65,7 +65,6 @@ class TestMedicFunctions(unittest.TestCase):
 
         response = create_medic(new_medic)
 
-
         self.assertEqual(response, new_medic.dict())
 
     @patch('src.config.database.Session')
