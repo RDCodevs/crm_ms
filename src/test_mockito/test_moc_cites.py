@@ -6,7 +6,7 @@ from src.models.cites import Cites as CiteModel
 from src.schemas.cites import Cites, UpdateCite
 from fastapi.responses import JSONResponse
 from fastapi import status
-
+#-------------------------------------------------------
 def get_all_cites():
     db = Session()
     res = db.query(CiteModel).all()

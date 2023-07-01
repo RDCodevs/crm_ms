@@ -7,7 +7,7 @@ from src.schemas.medic import Medic, UpdateMedic
 from fastapi.responses import JSONResponse
 from fastapi import status
 from fastapi.encoders import jsonable_encoder
-
+#-------------------------------------------------------
 def get_medic(medic_id: int):
     db = Session()
     res = db.query(MedicModel).filter(MedicModel.id_medic == medic_id).first()
