@@ -19,18 +19,33 @@ def get_pacient(pacient_id: int):
     return JSONResponse(status_code=status.HTTP_200_OK, content=jsonable_encoder(res))
 
 class TestPacientFunctions(unittest.TestCase):
+
+    pacient = {
+        "name": "Stalin",
+        "lastname": "Pillajo",
+        "gender": "Male",
+        "weight": 17.05,
+        "height": 1.72,
+        "ethnicity": "Indigena",
+        "allergies": "None",
+        "HTA": 110, 
+        "cie_code": 123456,
+        "birthday": "2001-12-07",    
+        "blood_type": "O+",
+        "address": "Jesus del Gran Poder, Cojimies y Colambo",
+        "phone": "0961800096"
+    }
+
     @patch('src.config.database.Session')
     def test_get_pacient(self, mock_session):
 
-        pacient = PacientModel(..., id_pacient=1)
+        pacient = PacientModel(**self.pacient)
 
         mock_db_session = MagicMock()
-        mock_db_session.query.return_value.filter.return_value.first.return_value = pacient
+        mock_db_session.query.return_value.filter.return_value.first = pacient
         mock_session.return_value = mock_db_session
 
-    
         response = get_pacient(1)
-
       
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.content, jsonable_encoder(pacient))
@@ -38,8 +53,8 @@ class TestPacientFunctions(unittest.TestCase):
     @patch('src.config.database.Session')
     def test_get_all_pacient(self, mock_session):
   
-        pacient1 = PacientModel(..., id_pacient=1)
-        pacient2 = PacientModel(..., id_pacient=2)
+        pacient1 = PacientModel(**self.pacient)
+        pacient2 = PacientModel(**self.pacient)
         
   
         mock_db_session = MagicMock()
@@ -55,7 +70,7 @@ class TestPacientFunctions(unittest.TestCase):
     @patch('src.config.database.Session')
     def test_create_pacient(self, mock_session):
 
-        new_pacient = Pacient(..., id_pacient=1)
+        new_pacient = PacientModel(**self.pacient)
         
         mock_db_session = MagicMock()
         mock_db_session.add.return_value = None
@@ -64,14 +79,13 @@ class TestPacientFunctions(unittest.TestCase):
 
      
         response = create_pacient(new_pacient)
-
   
-        self.assertEqual(response, new_pacient.dict())
+        self.assertEqual(response, new_pacient)
 
     @patch('src.config.database.Session')
     def test_patch_pacient(self, mock_session):
   
-        pacient = PacientModel(..., id_pacient=1)
+        pacient = Pacient(**self.pacient)
         
 
         mock_db_session = MagicMock()
@@ -81,11 +95,9 @@ class TestPacientFunctions(unittest.TestCase):
         mock_db_session.refresh.return_value = None
         mock_session.return_value = mock_db_session
 
-        updated_pacient = UpdatePacient(..., id=1)
-        
+        updated_pacient = UpdatePacient(**self.pacient)
 
         response = patch_pacient(updated_pacient)
-
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.content, jsonable_encoder(pacient))
@@ -93,8 +105,7 @@ class TestPacientFunctions(unittest.TestCase):
     @patch('src.config.database.Session')
     def test_delete_pacient(self, mock_session):
  
-        pacient = PacientModel(..., id_pacient=1)
-        
+        pacient = PacientModel(**self.pacient)
 
         mock_db_session = MagicMock()
         mock_db_session.query.return_value.filter.return_value.first.return_value = pacient

@@ -44,8 +44,8 @@ class UpdatePacient(BaseModel):
     gender: str
     name: str
     lastname: str
-    weight: int
-    height: int
+    weight: float
+    height: float
     ethnicity: str
     allergies: str
     HTA: int # Hipertensión Arterial

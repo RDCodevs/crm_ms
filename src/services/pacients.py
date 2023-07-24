@@ -38,6 +38,7 @@ def update_pacient(pacient):
 
 def patch_pacient(pacient: UpdatePacient):
     db = Session()
+    print(pacient)
     res = db.query(PacientModel).filter(PacientModel.id_pacient == pacient.id).first()
 
     if not res:
