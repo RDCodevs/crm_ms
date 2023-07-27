@@ -43,7 +43,7 @@ async def get_cite_by_id_patient(id_patient: int):
     """
     return cts.get_cite_by_patient_id(id_patient)
 
-@router.get("get_cite_medic/{id_medic}",
+@router.get("/get_cite_medic/{id_medic}",
             tags=["Cites"],
             response_model= Cites,
             status_code= status.HTTP_200_OK)
