@@ -39,7 +39,7 @@ async def get_cite_by_id_patient(id_patient: int):
         -id_patient: int
 
       ### RESPONSE
-        -cite: Cite
+        -cite: List(Cite)
     """
     return cts.get_cite_by_patient_id(id_patient)
 

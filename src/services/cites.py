@@ -27,7 +27,7 @@ def get_cite_by_id(id_cite: int):
 
 def get_cite_by_patient_id(id_pacient: int):
    db = Session()
-   res = db.query(CiteModel).filter(CiteModel.id_pacient == id_pacient).first()
+   res = db.query(CiteModel).filter(CiteModel.id_pacient == id_pacient).all()
 
    if not res:
       return JSONResponse(status_code= status.HTTP_404_NOT_FOUND,
